@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer - Sorting Dance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <header class="header">
+        <h1>Algorithm Visualizer</h1>
+        <p>Watch sorting algorithms dance data into perfect order</p>
+    </header>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel" id="controlsPanel">
+        <div class="controls-section">
+            <div class="control-group">
+                <label>Algorithm:</label>
+                <div class="select-wrapper">
+                    <select id="algorithmSelect">
+                        <option value="bubble">Bubble Sort</option>
+                        <option value="selection">Selection Sort</option>
+                        <option value="insertion">Insertion Sort</option>
+                        <option value="merge">Merge Sort</option>
+                        <option value="quick">Quick Sort</option>
+                        <option value="heap">Heap Sort</option>
+                        <option value="shell">Shell Sort</option>
+                    </select>
+                </div>
+                <button class="info-btn" id="algorithmInfoBtn" title="Algorithm Info">?</button>
+            </div>
+
+            <div class="control-group">
+                <label>Array Size:</label>
+                <input type="range" id="arraySize" min="10" max="150" value="50">
+                <span class="value-display" id="arraySizeValue">50</span>
+            </div>
+
+            <div class="control-group">
+                <label>Speed:</label>
+                <input type="range" id="speed" min="1" max="100" value="50">
+                <span class="value-display" id="speedValue">50</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn primary" id="shuffleBtn">Shuffle</button>
+            <button class="btn" id="sortBtn">Start Sort</button>
+            <button class="btn danger" id="stopBtn" disabled>Stop</button>
+        </div>
+    </div>
+
+    <!-- Main Visualization Area -->
+    <main class="visualization-area">
+        <div class="bars-container" id="barsContainer"></div>
+    </main>
+
+    <!-- Stats Panel -->
+    <div class="stats-panel" id="statsPanel">
+        <h3>Statistics</h3>
+        <div class="stat-item">
+            <span>Comparisons:</span>
+            <span id="comparisons">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Swaps:</span>
+            <span id="swaps">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Array Accesses:</span>
+            <span id="accesses">0</span>
+        </div>
+        <div class="stat-item">
+            <span>Time:</span>
+            <span id="time">0.0s</span>
+        </div>
+    </div>
+
+    <!-- Alg Info Panel -->
+    <div class="algorithm-info-panel" id="algorithmInfoPanel">
+        <div class="complexity-grid">
+            <div class="complexity-item">
+                <span class="complexity-label">Best Case:</span>
+                <span class="complexity-value" id="bestCase">O(n)</span>
+            </div>
+            <div class="complexity-item">
+                <span class="complexity-label">Average:</span>
+                <span class="complexity-value" id="avgCase">O(n²)</span>
+            </div>
+            <div class="complexity-item">
+                <span class="complexity-label">Worst Case:</span>
+                <span class="complexity-value" id="worstCase">O(n²)</span>
+            </div>
+            <div class="complexity-item">
+                <span class="complexity-label">Space:</span>
+                <span class="complexity-value" id="spaceCase">O(1)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Alg Info Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Bubble Sort</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="modal-description" id="modalDescription">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+                <div class="modal-complexity">
+                    <h3>Time & Space Complexity</h3>
+                    <div class="complexity-table">
+                        <div class="complexity-row">
+                            <span>Best Case:</span>
+                            <span id="modalBestCase">O(n)</span>
+                        </div>
+                        <div class="complexity-row">
+                            <span>Average Case:</span>
+                            <span id="modalAvgCase">O(n²)</span>
+                        </div>
+                        <div class="complexity-row">
+                            <span>Worst Case:</span>
+                            <span id="modalWorstCase">O(n²)</span>
+                        </div>
+                        <div class="complexity-row">
+                            <span>Space Complexity:</span>
+                            <span id="modalSpaceCase">O(1)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
